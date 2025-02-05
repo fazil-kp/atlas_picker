@@ -7,7 +7,6 @@ A Flutter package to easily pick countries and states. It provides a clean and c
 - **Country Picker**: Select countries with or without flags.
 - **State Picker**: Select states based on the selected country.
 - **Customizable**: You can customize the appearance and behavior of the pickers.
-- **Supports Flutter**: Fully compatible with Flutter applications.
 
 ## Installation
 
