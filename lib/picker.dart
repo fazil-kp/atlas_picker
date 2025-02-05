@@ -1,6 +1,6 @@
-import 'package:atlas_picker/picker/model/country_model.dart';
-import 'package:atlas_picker/picker/pickers/country_picker_new.dart';
-import 'package:atlas_picker/picker/pickers/state_picker_new.dart';
+import 'package:atlas_picker/model/country_model.dart';
+import 'package:atlas_picker/pickers/country_picker_new.dart';
+import 'package:atlas_picker/pickers/state_picker_new.dart';
 import 'package:flutter/material.dart';
 
 class Pick {

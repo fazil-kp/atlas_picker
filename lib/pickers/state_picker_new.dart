@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:atlas_picker/picker/elements/country_list.dart';
-import 'package:atlas_picker/picker/elements/smart_overlay.dart';
-import 'package:atlas_picker/picker/model/country_model.dart';
+import 'package:atlas_picker/elements/country_list.dart';
+import 'package:atlas_picker/elements/smart_overlay.dart';
+import 'package:atlas_picker/model/country_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 

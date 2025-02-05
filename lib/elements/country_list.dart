@@ -1,5 +1,5 @@
 
-import 'package:atlas_picker/picker/model/country_model.dart';
+import 'package:atlas_picker/model/country_model.dart';
 
 class ListOfCountries {
   static final List<CountryModel> listOfCountries = [
