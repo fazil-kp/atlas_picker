@@ -1,7 +1,7 @@
 name: atlas_picker
 description: "A new Flutter package project."
 version: 0.0.1
-homepage:
+homepage: https://github.com/fazil-kp/atlas_picker.git
 
 environment:
   sdk: ^3.6.0
