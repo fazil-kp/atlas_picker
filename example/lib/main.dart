@@ -16,7 +16,9 @@ class MyApp extends StatelessWidget {
       color: Colors.white,
       home: Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(backgroundColor: Colors.white, title: const Text('Country & State Picker Example')),
+        appBar: AppBar(
+            backgroundColor: Colors.white,
+            title: const Text('Country & State Picker Example')),
         body: const ExamplesScreen(),
       ),
     );

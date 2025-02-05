@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -18,13 +20,27 @@ class SmartOverlay extends HookWidget {
   final Curve animationCurve;
   final AnimationType animationType;
 
-  const SmartOverlay({super.key, required this.child, required this.overlayContent, this.backgroundColor, this.horizontalPadding, this.verticalPadding, this.onOpened, this.blurBackground = false, this.blurOpacity, this.animationDuration = const Duration(milliseconds: 300), this.animationCurve = Curves.easeInOut, this.animationType = AnimationType.none});
+  const SmartOverlay(
+      {super.key,
+      required this.child,
+      required this.overlayContent,
+      this.backgroundColor,
+      this.horizontalPadding,
+      this.verticalPadding,
+      this.onOpened,
+      this.blurBackground = false,
+      this.blurOpacity,
+      this.animationDuration = const Duration(milliseconds: 300),
+      this.animationCurve = Curves.easeInOut,
+      this.animationType = AnimationType.none});
 
   @override
   Widget build(BuildContext context) {
     final overlayEntry = useState<OverlayEntry?>(null);
-    final animationController = useAnimationController(duration: animationDuration);
-    final animation = CurvedAnimation(parent: animationController, curve: animationCurve);
+    final animationController =
+        useAnimationController(duration: animationDuration);
+    final animation =
+        CurvedAnimation(parent: animationController, curve: animationCurve);
 
     final removeOverlay = useCallback(() {
       if (overlayEntry.value != null) {
@@ -50,11 +66,20 @@ class SmartOverlay extends HookWidget {
         case AnimationType.scale:
           return ScaleTransition(scale: animation, child: content);
         case AnimationType.slide:
-          return SlideTransition(position: Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero).animate(animation), child: content);
+          return SlideTransition(
+              position:
+                  Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
+                      .animate(animation),
+              child: content);
         case AnimationType.size:
-          return SizeTransition(sizeFactor: animation, axis: Axis.vertical, child: content);
+          return SizeTransition(
+              sizeFactor: animation, axis: Axis.vertical, child: content);
         case AnimationType.switcher:
-          return AnimatedSwitcher(duration: animationDuration, switchInCurve: animationCurve, switchOutCurve: animationCurve, child: content);
+          return AnimatedSwitcher(
+              duration: animationDuration,
+              switchInCurve: animationCurve,
+              switchOutCurve: animationCurve,
+              child: content);
         case AnimationType.none:
           return content;
       }
@@ -77,16 +102,41 @@ class SmartOverlay extends HookWidget {
                   child: GestureDetector(
                     onTap: () => removeOverlay(),
                     behavior: HitTestBehavior.opaque,
-                    child: blurBackground ? BackdropFilter(filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0), child: Container(color: Colors.black.withOpacity(blurOpacity ?? 0.2))) : Container(color: Colors.transparent),
+                    child: blurBackground
+                        ? BackdropFilter(
+                            filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                            child: Container(
+                                color: Colors.black
+                                    .withOpacity(blurOpacity ?? 0.2)))
+                        : Container(color: Colors.transparent),
                   ),
                 ),
-                Positioned(left: offset!.dx - horizontalPadding, top: offset.dy - verticalPadding, child: GestureDetector(onTap: () {}, child: Material(color: backgroundColor ?? Colors.transparent, child: buildAnimatedOverlay(overlayContent(removeOverlay)))))
+                Positioned(
+                    left: offset!.dx - horizontalPadding,
+                    top: offset.dy - verticalPadding,
+                    child: GestureDetector(
+                        onTap: () {},
+                        child: Material(
+                            color: backgroundColor ?? Colors.transparent,
+                            child: buildAnimatedOverlay(
+                                overlayContent(removeOverlay)))))
               ]));
 
       overlay.insert(newOverlayEntry);
       overlayEntry.value = newOverlayEntry;
       animationController.forward();
-    }, [overlayEntry, onOpened, backgroundColor, blurBackground, blurOpacity, horizontalPadding, verticalPadding, overlayContent, removeOverlay, animationController]);
+    }, [
+      overlayEntry,
+      onOpened,
+      backgroundColor,
+      blurBackground,
+      blurOpacity,
+      horizontalPadding,
+      verticalPadding,
+      overlayContent,
+      removeOverlay,
+      animationController
+    ]);
 
     return child(showOverlay);
   }

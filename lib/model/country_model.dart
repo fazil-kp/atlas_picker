@@ -14,7 +14,8 @@ class CountryModel with _$CountryModel {
     required List<StateModel> states,
   }) = _CountryModel;
 
-  factory CountryModel.fromJson(Map<String, dynamic> json) => _$CountryModelFromJson(json);
+  factory CountryModel.fromJson(Map<String, dynamic> json) =>
+      _$CountryModelFromJson(json);
 }
 
 @freezed
@@ -23,5 +24,6 @@ class StateModel with _$StateModel {
     required String name,
   }) = _StateModel;
 
-  factory StateModel.fromJson(Map<String, dynamic> json) => _$StateModelFromJson(json);
+  factory StateModel.fromJson(Map<String, dynamic> json) =>
+      _$StateModelFromJson(json);
 }

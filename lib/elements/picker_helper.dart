@@ -7,65 +7,118 @@ class PickerTypeUi {
   Widget buildPickerTypeWidget(PickerType pickerType, CountryModel country) {
     switch (pickerType) {
       case PickerType.flagOnly:
-        return Padding(padding: const EdgeInsets.only(right: 8.0), child: CountryFlag.fromCountryCode(country.shortName, shape: const Circle(), width: 40, height: 40));
+        return Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: CountryFlag.fromCountryCode(country.shortName,
+                shape: const Circle(), width: 40, height: 40));
       case PickerType.codeOnly:
-        return Center(child: Padding(padding: const EdgeInsets.only(right: 8.0), child: Text(country.code, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500))));
+        return Center(
+            child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Text(country.code,
+                    style: const TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.w500))));
       case PickerType.nameOnly:
-        return Text(country.name, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis);
+        return Text(country.name,
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+            overflow: TextOverflow.ellipsis);
       case PickerType.shortNameOnly:
-        return Center(child: Padding(padding: const EdgeInsets.only(right: 8.0), child: Text(country.shortName, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis)));
+        return Center(
+            child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Text(country.shortName,
+                    style: const TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.w500),
+                    overflow: TextOverflow.ellipsis)));
       case PickerType.flagAndName:
         return Row(
           children: [
-            CountryFlag.fromCountryCode(country.shortName, shape: const Circle(), width: 18, height: 18),
+            CountryFlag.fromCountryCode(country.shortName,
+                shape: const Circle(), width: 18, height: 18),
             const SizedBox(width: 5),
-            Expanded(child: Text(country.name, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis)),
+            Expanded(
+                child: Text(country.name,
+                    style: const TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.w500),
+                    overflow: TextOverflow.ellipsis)),
           ],
         );
       case PickerType.flagAndShortName:
         return Row(
           children: [
-            CountryFlag.fromCountryCode(country.shortName, shape: const Circle(), width: 18, height: 18),
+            CountryFlag.fromCountryCode(country.shortName,
+                shape: const Circle(), width: 18, height: 18),
             const SizedBox(width: 5),
-            Expanded(child: Text(country.shortName, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis)),
+            Expanded(
+                child: Text(country.shortName,
+                    style: const TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.w500),
+                    overflow: TextOverflow.ellipsis)),
           ],
         );
       case PickerType.flagAndCode:
         return Row(
           children: [
-            CountryFlag.fromCountryCode(country.shortName, shape: const Circle(), width: 18, height: 18),
+            CountryFlag.fromCountryCode(country.shortName,
+                shape: const Circle(), width: 18, height: 18),
             const SizedBox(width: 5),
-            Text(country.code, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis),
+            Text(country.code,
+                style:
+                    const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                overflow: TextOverflow.ellipsis),
           ],
         );
       case PickerType.codeAndName:
         return Row(
           children: [
-            Text(country.code, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis),
+            Text(country.code,
+                style:
+                    const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                overflow: TextOverflow.ellipsis),
             const SizedBox(width: 5),
-            Expanded(child: Text(country.name, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis)),
+            Expanded(
+                child: Text(country.name,
+                    style: const TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.w500),
+                    overflow: TextOverflow.ellipsis)),
           ],
         );
       case PickerType.all:
         return Row(
           children: [
-            CountryFlag.fromCountryCode(country.shortName, shape: const Circle(), width: 18, height: 18),
+            CountryFlag.fromCountryCode(country.shortName,
+                shape: const Circle(), width: 18, height: 18),
             const SizedBox(width: 5),
-            Text(country.code, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+            Text(country.code,
+                style:
+                    const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
             const SizedBox(width: 5),
-            Text(country.shortName, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+            Text(country.shortName,
+                style:
+                    const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
             const SizedBox(width: 5),
-            Expanded(child: Text(country.name, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis)),
+            Expanded(
+                child: Text(country.name,
+                    style: const TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.w500),
+                    overflow: TextOverflow.ellipsis)),
           ],
         );
       case PickerType.normal:
         return Row(
           children: [
-            CountryFlag.fromCountryCode(country.shortName, shape: const Circle(), width: 18, height: 18),
+            CountryFlag.fromCountryCode(country.shortName,
+                shape: const Circle(), width: 18, height: 18),
             const SizedBox(width: 5),
-            Text(country.code, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+            Text(country.code,
+                style:
+                    const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
             const SizedBox(width: 5),
-            Expanded(child: Text(country.name, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis)),
+            Expanded(
+                child: Text(country.name,
+                    style: const TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.w500),
+                    overflow: TextOverflow.ellipsis)),
           ],
         );
     }

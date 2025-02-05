@@ -6,7 +6,6 @@ import 'package:atlas_picker/model/country_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-
 class StatePickerNew extends HookWidget {
   final String countryName;
   final Function(StateModel) onChanged;
@@ -16,11 +15,27 @@ class StatePickerNew extends HookWidget {
   final bool? isSearchEnable;
   final Color? searchBoarderColor;
 
-  const StatePickerNew({super.key, required this.countryName, this.searchBoarderColor, required this.onChanged, this.customWidget, this.verticalPadding, this.horizontalPadding, this.isSearchEnable = true});
+  const StatePickerNew(
+      {super.key,
+      required this.countryName,
+      this.searchBoarderColor,
+      required this.onChanged,
+      this.customWidget,
+      this.verticalPadding,
+      this.horizontalPadding,
+      this.isSearchEnable = true});
 
   @override
   Widget build(BuildContext context) {
-    final country = ListOfCountries.listOfCountries.firstWhere((c) => c.name == countryName, orElse: () => const CountryModel(states: [], name: '', code: '', flag: '', shortName: '', phoneNumberLength: 0));
+    final country = ListOfCountries.listOfCountries.firstWhere(
+        (c) => c.name == countryName,
+        orElse: () => const CountryModel(
+            states: [],
+            name: '',
+            code: '',
+            flag: '',
+            shortName: '',
+            phoneNumberLength: 0));
     final searchText = useState("");
     final searchFocus = useFocusNode();
     final filteredStates = useState<List<StateModel>>(country.states);
@@ -28,7 +43,10 @@ class StatePickerNew extends HookWidget {
 
     void searchStates(String value) {
       searchText.value = value;
-      filteredStates.value = country.states.where((state) => state.name.toLowerCase().contains(value.toLowerCase()) == true).toList();
+      filteredStates.value = country.states
+          .where((state) =>
+              state.name.toLowerCase().contains(value.toLowerCase()) == true)
+          .toList();
     }
 
     return SmartOverlay(
@@ -43,13 +61,21 @@ class StatePickerNew extends HookWidget {
                 height: 45,
                 width: 210,
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10), border: Border.all(color: Colors.grey.shade300)),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.grey.shade300)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(selectedState.value?.name ?? 'Select a state', style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.black)),
+                    Text(selectedState.value?.name ?? 'Select a state',
+                        style: const TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black)),
                     const Spacer(),
-                    const Icon(Icons.keyboard_arrow_down_outlined, size: 24, color: Colors.black),
+                    const Icon(Icons.keyboard_arrow_down_outlined,
+                        size: 24, color: Colors.black),
                   ],
                 ),
               ),
@@ -60,7 +86,13 @@ class StatePickerNew extends HookWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
-          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 5, spreadRadius: 0, offset: const Offset(0, 2))],
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 5,
+                spreadRadius: 0,
+                offset: const Offset(0, 2))
+          ],
           border: Border.all(color: Colors.grey.shade200),
         ),
         width: 210,
@@ -83,12 +115,23 @@ class StatePickerNew extends HookWidget {
                       focusColor: Colors.white,
                       fillColor: Colors.white,
                       hintText: 'Search State',
-                      hintStyle: const TextStyle(color: Colors.grey, fontSize: 13),
-                      prefixIcon: const Icon(Icons.search, color: Colors.grey, size: 20),
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: Colors.grey.shade300)),
-                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: searchBoarderColor ?? Colors.red.shade200)),
-                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: Colors.grey.shade300)),
-                      contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 16),
+                      hintStyle:
+                          const TextStyle(color: Colors.grey, fontSize: 13),
+                      prefixIcon: const Icon(Icons.search,
+                          color: Colors.grey, size: 20),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.grey.shade300)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                              color:
+                                  searchBoarderColor ?? Colors.red.shade200)),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.grey.shade300)),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 16),
                     ),
                   ),
                 ),
@@ -114,11 +157,19 @@ class StatePickerNew extends HookWidget {
                         close.call();
                       },
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 3),
                         child: Container(
-                          decoration: BoxDecoration(color: isSelected ? Colors.grey.shade300 : Colors.white, borderRadius: BorderRadius.circular(10)),
-                          padding: const EdgeInsets.only(top: 10, bottom: 10, left: 8),
-                          child: Text(state.name, style: const TextStyle(fontSize: 12), overflow: TextOverflow.ellipsis),
+                          decoration: BoxDecoration(
+                              color: isSelected
+                                  ? Colors.grey.shade300
+                                  : Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
+                          padding: const EdgeInsets.only(
+                              top: 10, bottom: 10, left: 8),
+                          child: Text(state.name,
+                              style: const TextStyle(fontSize: 12),
+                              overflow: TextOverflow.ellipsis),
                         ),
                       ),
                     ),
