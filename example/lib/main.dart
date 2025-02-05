@@ -1,5 +1,5 @@
-import 'package:atlas_picker/picker/model/country_model.dart';
-import 'package:atlas_picker/picker/picker.dart';
+import 'package:atlas_picker/model/country_model.dart';
+import 'package:atlas_picker/picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
