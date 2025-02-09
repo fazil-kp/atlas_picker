@@ -1,6 +1,6 @@
 import 'package:atlas_picker/model/country_model.dart';
-import 'package:atlas_picker/pickers/country_picker_new.dart';
-import 'package:atlas_picker/pickers/state_picker_new.dart';
+import 'package:atlas_picker/pickers/country_picker.dart';
+import 'package:atlas_picker/pickers/state_picker.dart';
 import 'package:flutter/material.dart';
 
 class Pick {
@@ -13,7 +13,7 @@ class Pick {
     PickerType pickerType = PickerType.normal,
     Color? searchBoarderColor,
   }) {
-    return CountryPickerNew(
+    return CountryPicker(
       onChanged: onChanged,
       customWidget: customWidget,
       verticalPadding: verticalPadding,
@@ -33,7 +33,7 @@ class Pick {
     bool? isSearchEnable = true,
     searchBoarderColor,
   }) {
-    return StatePickerNew(
+    return StatePicker(
       countryName: countryName,
       onChanged: onChanged,
       customWidget: customWidget,
