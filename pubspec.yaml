@@ -1,6 +1,6 @@
 name: atlas_picker
 description: "A Flutter package for easy selection of countries and states with customizable pickers."
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/fazil-kp/atlas_picker.git
 
 environment:
