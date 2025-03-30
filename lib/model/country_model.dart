@@ -1,29 +1,27 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+class CountryModel {
+  final String? name;
+  final String? code;
+  final String? flag;
+  final String? shortName;
+  final String? currencyName;
+  final String? currencySymbol;
+  final int? phoneNumberLength;
+  final List<StateModel>? states;
 
-part 'country_model.freezed.dart';
-part 'country_model.g.dart';
-
-@freezed
-class CountryModel with _$CountryModel {
-  const factory CountryModel({
-    required String name,
-    required String code,
-    required String flag,
-    required String shortName,
-    required int phoneNumberLength,
-    required List<StateModel> states,
-  }) = _CountryModel;
-
-  factory CountryModel.fromJson(Map<String, dynamic> json) =>
-      _$CountryModelFromJson(json);
+  const CountryModel({
+    this.name,
+    this.code,
+    this.flag,
+    this.shortName,
+    this.currencyName,
+    this.currencySymbol,
+    this.phoneNumberLength,
+    this.states,
+  });
 }
 
-@freezed
-class StateModel with _$StateModel {
-  const factory StateModel({
-    required String name,
-  }) = _StateModel;
+class StateModel {
+  final String name;
 
-  factory StateModel.fromJson(Map<String, dynamic> json) =>
-      _$StateModelFromJson(json);
+  const StateModel({required this.name});
 }
