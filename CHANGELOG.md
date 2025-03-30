@@ -1,3 +1,6 @@
+## 1.0.4
+
+- Ui Fully Updated.
 ## 1.0.3
 
 - TODO: Ui Updated.
